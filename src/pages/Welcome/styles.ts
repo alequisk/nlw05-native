@@ -1,27 +1,36 @@
 import styled from 'styled-components/native';
-import { Platform } from 'react-native';
+import { Platform, Dimensions } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
 import colors from '../../styles/colors';
+import fonts from '../../styles/fonts';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
-  align-items: center;
-  justify-content: space-between;
   padding-top: ${ Platform.OS === 'android' ? '25px' : '0' };
 `;
 
+export const Wrapper = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 20px;
+`;
+
 export const Title = styled.Text`
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 30px;
   text-align: center;
   color: ${ colors.heading };
-  margin-top: 38px;
+  padding-top: 10px;
+  font-family: ${ fonts.heading };
+  line-height: 34px;
 `;
 
 export const Subtitle = styled.Text`
   text-align: center;
   font-size: 18px;
   padding: 0 20px;
+  font-family: ${ fonts.text };
   color: ${ colors.heading };
 `;
 
@@ -32,16 +41,15 @@ export const Button = styled.TouchableOpacity`
   border-radius: 16px;
   height: 56px;
   width: 56px;
-  margin-bottom: 15px;
   padding: 0 10px;
 `;
 
 export const Image = styled.Image`
-  width: 292px;
+  width: ${ Dimensions.get('window').width * 0.7 }px;
   height: 284px;
 `;
 
-export const ButtonText = styled.Text`
+export const ButtonIcon = styled(Feather)`
+  font-size: 32px;
   color: ${ colors.white };
-  font-size: 24px;
 `;
